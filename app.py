@@ -1,9 +1,13 @@
 from flask import Flask, request, jsonify
 import PyPDF2
-# Import functions from your resume_parser script
-from resume_parser import extract_text_from_pdf, parse_resume
+# Import functions from your flask_resume_parser script
+from flask_resume_parser import extract_text_from_pdf, parse_resume
 
 app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def home():
+    return "Welcome to Naman's Resume Parser API!", 200
 
 @app.route('/parse_resume', methods=['POST'])
 def parse_resume_endpoint():
@@ -19,4 +23,4 @@ def parse_resume_endpoint():
         return jsonify(parsed_resume)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

@@ -1,0 +1,14 @@
+{
+    "AWSEBDockerrunVersion": "4-1",
+    "Image": {
+      "Name": "nsvoltage/resume-api:v2",
+      "Update": "true"
+    },
+    "Ports": [
+      {
+        "ContainerPort": "5000"
+      }
+    ]
+  }
+  
+  
